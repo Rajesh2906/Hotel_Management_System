@@ -1,7 +1,11 @@
 package com.hms.staff;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.stereotype.Component;
 
+@Component
+@Document(collection = "Staff")
 public class Staff {
 
 	private String staffCode;

@@ -10,19 +10,13 @@ public class StaffService {
 
 	@Autowired
 	private StaffRepository staffrep;
-	@Autowired
-	private Staff staff;
 
 	public List<Staff> getAllReservation() {
 		return staffrep.findAll();
 	}
 
-	/*
-	 * public Staff addReservation(Staff staff) { if (staff.getEmail()) {
-	 * 
-	 * return null; }
-	 * 
-	 * }
-	 */
+	public Staff addStaff(Staff staff) {
+		return staffrep.insert(staff);
+	}
 
 }
