@@ -1,4 +1,4 @@
-package com.reservation;
+package com.hms.reservation;
 
 import java.util.List;
 
@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 public class reservationService {
 
 	@Autowired
-	private repo rep;
+	private reservationRepository rep;
+	@Autowired
+	private Reservation res;
 
 	public List<Reservation> getAllReservation() {
 		return rep.findAll();
@@ -18,5 +20,10 @@ public class reservationService {
 	public Reservation addReservation(Reservation reservaiton) {
 		return rep.insert(reservaiton);
 	}
+
+	/*
+	 * public boolean findById(String code) { return
+	 * rep.findById(res.getCode()).equals(code); }
+	 */
 
 }

@@ -1,4 +1,4 @@
-package com.reservation;
+package com.hms.reservation;
 
 import java.util.List;
 
@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class controller {
+@RequestMapping("/reception")
+public class reservationController {
 
 	@Autowired
 	private reservationService service;
