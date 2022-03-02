@@ -29,9 +29,9 @@ public class HotelManagementSystemApplication {
 	}
 
 	private ApiInfo apiDetails() {
-		return new ApiInfo("U Dummy Hotel", "Online Hotel Management System", "1.0", "Terms of service",
-				new Contact("Rohit (Manager)", "www.UDummyHotel.com", "rohit@udummyhotel.com"), "http://UDummyHotel.in",
-				"API license URL", Collections.emptyList());
+		return new ApiInfo("Capgemini Hotel Management system", "Online Hotel Management System", "1.0",
+				"Terms of service", new Contact("Rohit (Manager)", "www.UDummyHotel.com", "rohit@udummyhotel.com"),
+				"http://UDummyHotel.in", "API license URL", Collections.emptyList());
 	}
 
 }
