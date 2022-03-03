@@ -19,6 +19,7 @@ public class HotelManagementSystemApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HotelManagementSystemApplication.class, args);
+
 	}
 
 	@Bean

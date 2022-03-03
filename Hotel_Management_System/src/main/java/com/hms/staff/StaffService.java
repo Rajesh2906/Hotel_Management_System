@@ -19,4 +19,16 @@ public class StaffService {
 		return staffrep.insert(staff);
 	}
 
+	public void deleteStaffById(String staffCode) {
+		staffrep.deleteById(staffCode);
+	}
+
+	public Staff updateStaffById(Staff staffCode) {
+		return staffrep.save(staffCode);
+	}
+
+	public Staff getStaffById(String staffCode) {
+		return staffrep.findById(staffCode).get();
+	}
+
 }

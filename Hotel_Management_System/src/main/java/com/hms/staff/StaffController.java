@@ -3,6 +3,7 @@ package com.hms.staff;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,6 +23,21 @@ public class StaffController {
 	@RequestMapping(value = "/staff", method = RequestMethod.POST)
 	public Staff addStaff(@RequestBody Staff staff) {
 		return staffservice.addStaff(staff);
+	}
+
+	@RequestMapping(value = "/staff/{staffCode}", method = RequestMethod.DELETE)
+	public void deleteById(@PathVariable("staffCode") String staffCode) {
+		staffservice.deleteStaffById(staffCode);
+	}
+
+	@RequestMapping(value = "/staff", method = RequestMethod.PUT)
+	public Staff updateById(@RequestBody Staff staffCode) {
+		return staffservice.updateStaffById(staffCode);
+	}
+
+	@RequestMapping(value = "/staff/{staffCode}", method = RequestMethod.GET)
+	public Staff getStaffById(@PathVariable("staffCode") String staffCode) {
+		return staffservice.getStaffById(staffCode);
 	}
 
 }

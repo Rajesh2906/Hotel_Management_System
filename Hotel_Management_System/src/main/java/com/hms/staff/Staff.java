@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 @Document(collection = "Staff")
 public class Staff {
 
+	@Id
 	private String staffCode;
 	private String employeeName;
 	private String employeeAddress;
 	private Double salary;
 	private int age;
 	private String occupation;
-	@Id
 	private String email;
 
 	public Staff() {
