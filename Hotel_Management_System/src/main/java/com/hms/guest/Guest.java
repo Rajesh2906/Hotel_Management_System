@@ -10,6 +10,16 @@ public class Guest {
 
 	@Id
 	private String memberCode;
+	private String reserveCode;
+
+	public String getReserveCode() {
+		return reserveCode;
+	}
+
+	public void setReserveCode(String reserveCode) {
+		this.reserveCode = reserveCode;
+	}
+
 	private Long phoneNumber;
 	private String company;
 	private String name;

@@ -12,23 +12,22 @@ public class Bill {
 
 	@Id
 	private String billingNo;
-	private String quantity;
+	private String guestMemberCode;
+	private Double quantity;
 	private Double price;
 	private Double taxes;
 	private Date date;
 	private Double services;
 	private Double unit;
-	/* private Double Total = price + taxes + services; */
 
 	// empty constructer
 	public Bill() {
 
 	}
 
-	public Bill(String billcode, String billingNo, String quantity, Double price, Double taxes, Date date,
-			Double services, Double unit, Double total) {
+	public Bill(String billingNo, Double quantity, Double price, Double taxes, Date date, Double services,
+			Double unit) {
 		super();
-
 		this.billingNo = billingNo;
 		this.quantity = quantity;
 		this.price = price;
@@ -36,15 +35,15 @@ public class Bill {
 		this.date = date;
 		this.services = services;
 		this.unit = unit;
-		/* Total = total; */
 	}
 
-	/*
-	 * public Double getTotal() { return Total; }
-	 * 
-	 * 
-	 * public void setTotal(Double total) { Total = total; }
-	 */
+	public String getGuestMemberCode() {
+		return guestMemberCode;
+	}
+
+	public void setGuestMemberCode(String guestMemberCode) {
+		this.guestMemberCode = guestMemberCode;
+	}
 
 	public String getBillingNo() {
 		return billingNo;
@@ -54,11 +53,11 @@ public class Bill {
 		this.billingNo = billingNo;
 	}
 
-	public String getQuantity() {
+	public Double getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(String quantity) {
+	public void setQuantity(Double quantity) {
 		this.quantity = quantity;
 	}
 

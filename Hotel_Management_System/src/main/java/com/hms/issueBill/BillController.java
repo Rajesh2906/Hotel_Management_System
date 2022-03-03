@@ -26,10 +26,19 @@ public class BillController {
 	}
 
 	@RequestMapping(value = "/getBill/{memberCode}", method = RequestMethod.POST)
-	public Bill addBillById(@RequestBody Bill bill, @PathVariable("memberCode") String memberCode) {
-
-		return billservice.addifGuestGotBill(memberCode, bill);
+	public Bill setBillByGuestId(@RequestBody Bill bill, @PathVariable("memberCode") String memberCode) {
+		return billservice.setBillByGuestId(memberCode, bill);
 
 	}
+
+	/*
+	 * @RequestMapping(value = "/getBill/{memberCode}", method = RequestMethod.POST)
+	 * public Bill addBillById(@RequestBody Bill bill, @PathVariable("memberCode")
+	 * String memberCode) {
+	 * 
+	 * return billservice.addifGuestGotBill(memberCode, bill);
+	 * 
+	 * }
+	 */
 
 }
