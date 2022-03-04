@@ -9,23 +9,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hms.reservation.Reservation;
+import com.hms.rooms.RoomsRepository;
 
 @RestController
 public class GuestController {
 	@Autowired
 	private GuestService ser;
+
 	@Autowired
-	private Reservation res;
+	RoomsRepository roomrepo;
 
 	@RequestMapping("/guest")
 	public List<Guest> getGuestList() {
 		return ser.getAllGuest();
 	}
 
-	@RequestMapping(value = "/guest/{code}", method = RequestMethod.POST)
-	public Guest addGuest(@RequestBody Guest guest, @PathVariable("code") String code) {
-		return ser.addifGuest(code, guest);
+	@RequestMapping(value = "/guest/{code}/{roomNo}", method = RequestMethod.POST)
+	public Guest addGuest(@RequestBody Guest guest, @PathVariable("code") String code,
+			@PathVariable("roomNo") String roomNo) {
+		roomrepo.findById(roomNo).ifPresent(p -> p.setRoomStatus("active"));
+		return ser.addifGuest(code, guest, roomNo);
 	}
 
 	/*

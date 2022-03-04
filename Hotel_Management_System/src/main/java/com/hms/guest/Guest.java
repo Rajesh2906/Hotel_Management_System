@@ -11,15 +11,7 @@ public class Guest {
 	@Id
 	private String memberCode;
 	private String reserveCode;
-
-	public String getReserveCode() {
-		return reserveCode;
-	}
-
-	public void setReserveCode(String reserveCode) {
-		this.reserveCode = reserveCode;
-	}
-
+	private String roomNo;
 	private Long phoneNumber;
 	private String company;
 	private String name;
@@ -30,16 +22,34 @@ public class Guest {
 	public Guest() {
 	}
 
-	public Guest(String memberCode, Long phoneNumber, String company, String name, String email, String gender,
-			String address) {
+	public Guest(String memberCode, String reserveCode, String roomNo, Long phoneNumber, String company, String name,
+			String email, String gender, String address) {
 		super();
 		this.memberCode = memberCode;
+		this.reserveCode = reserveCode;
+		this.roomNo = roomNo;
 		this.phoneNumber = phoneNumber;
 		this.company = company;
 		this.name = name;
 		this.email = email;
 		this.gender = gender;
 		this.address = address;
+	}
+
+	public String getRoomNo() {
+		return roomNo;
+	}
+
+	public void setRoomNo(String roomNo) {
+		this.roomNo = roomNo;
+	}
+
+	public String getReserveCode() {
+		return reserveCode;
+	}
+
+	public void setReserveCode(String reserveCode) {
+		this.reserveCode = reserveCode;
 	}
 
 	public String getMemberCode() {

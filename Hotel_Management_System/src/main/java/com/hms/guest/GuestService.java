@@ -7,22 +7,32 @@ import org.springframework.stereotype.Service;
 
 import com.hms.reservation.reservationRepository;
 import com.hms.reservation.reservationService;
+import com.hms.rooms.RoomsRepository;
 
 @Service
 public class GuestService {
 
-	@Autowired
-	private Guest guest;
 	@Autowired
 	private reservationRepository resrepo;
 	@Autowired
 	private GuestRepository repo;
 	@Autowired
 	reservationService ser;
+	@Autowired
+	RoomsRepository roomsrepo;
 
-	public Guest addifGuest(String code, Guest guest) {
+	/*
+	 * @Autowired private RoomsController roomscontroller;
+	 */
+
+	public Guest addifGuest(String code, Guest guest, String roomNo) {
 		if (resrepo.existsById(code)) {
+
+			// roomscontroller.updateTotalRooms(roomsrepo.findById(roomNo).get(), roomNo);
+
 			guest.setReserveCode(code);
+			guest.setRoomNo(roomNo);
+
 			return repo.insert(guest);
 
 		}
