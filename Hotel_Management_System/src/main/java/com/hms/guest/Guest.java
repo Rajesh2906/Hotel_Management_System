@@ -14,6 +14,7 @@ public class Guest {
 	private String memberCode;
 	private String reserveCode;
 	private String roomNo;
+
 	private Date todayDate;
 	private String guestStatus;
 	private Long phoneNumber;

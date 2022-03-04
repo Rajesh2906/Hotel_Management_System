@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class GuestController {
 	@Autowired
 	private GuestService ser;
-	@Autowired
-	private GuestRepository repo;
 
 	@RequestMapping("/guest")
 	public List<Guest> getGuestList() {
@@ -28,10 +26,10 @@ public class GuestController {
 
 	}
 
-	@RequestMapping(value = "/updateguest/{code}/{roomNo}/{todaydate}/{membercode}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/updateguest/{code}/{roomNo}/{membercode}", method = RequestMethod.PUT)
 	public void updateGuest(@PathVariable("code") String code, @PathVariable("roomNo") String roomNo,
-			@PathVariable("todaydate") String todaydate, @PathVariable("membercode") String membercode) {
-		ser.removeGuest(code, roomNo, todaydate, membercode);
+			@PathVariable("membercode") String membercode) {
+		ser.removeGuest(code, roomNo, membercode);
 
 	}
 
