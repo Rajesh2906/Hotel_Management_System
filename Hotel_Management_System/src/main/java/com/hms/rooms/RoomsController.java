@@ -3,7 +3,6 @@ package com.hms.rooms;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,8 +21,8 @@ public class RoomsController {
 
 	}
 
-	@RequestMapping(value = "/{roomNo}", method = RequestMethod.PUT)
-	public void updateTotalRooms(Rooms rooms, @PathVariable("roomNo") String roomNo) {
+	@RequestMapping(value = "/updateRooms", method = RequestMethod.PUT)
+	public void updateTotalRooms(@RequestBody Rooms rooms) {
 		roomservice.updateNoofRooms(rooms);
 	}
 

@@ -1,5 +1,7 @@
 package com.hms.guest;
 
+import java.util.Date;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
@@ -12,6 +14,8 @@ public class Guest {
 	private String memberCode;
 	private String reserveCode;
 	private String roomNo;
+	private Date todayDate;
+	private String guestStatus;
 	private Long phoneNumber;
 	private String company;
 	private String name;
@@ -22,18 +26,36 @@ public class Guest {
 	public Guest() {
 	}
 
-	public Guest(String memberCode, String reserveCode, String roomNo, Long phoneNumber, String company, String name,
-			String email, String gender, String address) {
+	public Guest(String memberCode, String reserveCode, String roomNo, Date todayDate, String guestStatus,
+			Long phoneNumber, String company, String name, String email, String gender, String address) {
 		super();
 		this.memberCode = memberCode;
 		this.reserveCode = reserveCode;
 		this.roomNo = roomNo;
+		this.todayDate = todayDate;
+		this.guestStatus = guestStatus;
 		this.phoneNumber = phoneNumber;
 		this.company = company;
 		this.name = name;
 		this.email = email;
 		this.gender = gender;
 		this.address = address;
+	}
+
+	public String getGuestStatus() {
+		return guestStatus;
+	}
+
+	public void setGuestStatus(String guestStatus) {
+		this.guestStatus = guestStatus;
+	}
+
+	public Date getTodayDate() {
+		return todayDate;
+	}
+
+	public void setTodayDate(Date todayDate) {
+		this.todayDate = todayDate;
 	}
 
 	public String getRoomNo() {

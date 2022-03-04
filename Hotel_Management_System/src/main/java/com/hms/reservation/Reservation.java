@@ -1,7 +1,5 @@
 package com.hms.reservation;
 
-import java.util.Date;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
@@ -13,8 +11,8 @@ public class Reservation {
 	private String status;
 	private int noofchildren;
 	private int noofadults;
-	private Date checkindate;
-	private Date checkoutdate;
+	private String checkin;
+	private String checkout;
 	private int noofnights;
 	@Id
 	private String code;
@@ -22,14 +20,14 @@ public class Reservation {
 	public Reservation() {
 	}
 
-	public Reservation(String status, int noofchildren, int noofadults, Date checkindate, Date checkoutdate,
-			int noofnights, String code) {
+	public Reservation(String status, int noofchildren, int noofadults, String checkin, String checkout, int noofnights,
+			String code) {
 		super();
 		this.status = status;
 		this.noofchildren = noofchildren;
 		this.noofadults = noofadults;
-		this.checkindate = checkindate;
-		this.checkoutdate = checkoutdate;
+		this.checkin = checkin;
+		this.checkout = checkout;
 		this.noofnights = noofnights;
 		this.code = code;
 	}
@@ -58,20 +56,20 @@ public class Reservation {
 		this.noofadults = noofadults;
 	}
 
-	public Date getCheckindate() {
-		return checkindate;
+	public String getCheckin() {
+		return checkin;
 	}
 
-	public void setCheckindate(Date checkindate) {
-		this.checkindate = checkindate;
+	public void setCheckin(String checkin) {
+		this.checkin = checkin;
 	}
 
-	public Date getCheckoutdate() {
-		return checkoutdate;
+	public String getCheckout() {
+		return checkout;
 	}
 
-	public void setCheckoutdate(Date checkoutdate) {
-		this.checkoutdate = checkoutdate;
+	public void setCheckout(String checkout) {
+		this.checkout = checkout;
 	}
 
 	public int getNoofnights() {

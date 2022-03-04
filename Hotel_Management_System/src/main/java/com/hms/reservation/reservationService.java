@@ -10,8 +10,6 @@ public class reservationService {
 
 	@Autowired
 	private reservationRepository rep;
-	@Autowired
-	private Reservation res;
 
 	public List<Reservation> getAllReservation() {
 		return rep.findAll();

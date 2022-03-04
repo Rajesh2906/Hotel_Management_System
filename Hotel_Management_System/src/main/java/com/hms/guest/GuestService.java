@@ -7,11 +7,13 @@ import org.springframework.stereotype.Service;
 
 import com.hms.reservation.reservationRepository;
 import com.hms.reservation.reservationService;
+import com.hms.rooms.Rooms;
 import com.hms.rooms.RoomsRepository;
 
 @Service
 public class GuestService {
-
+	@Autowired
+	Guest guest;
 	@Autowired
 	private reservationRepository resrepo;
 	@Autowired
@@ -22,26 +24,43 @@ public class GuestService {
 	RoomsRepository roomsrepo;
 
 	/*
-	 * @Autowired private RoomsController roomscontroller;
+	 * Date currentDate = new Date(); SimpleDateFormat dateFormat = new
+	 * SimpleDateFormat("dd/mm/yyyy"); String dateOnly =
+	 * dateFormat.format(currentDate);
 	 */
 
 	public Guest addifGuest(String code, Guest guest, String roomNo) {
 		if (resrepo.existsById(code)) {
 
-			// roomscontroller.updateTotalRooms(roomsrepo.findById(roomNo).get(), roomNo);
+			Rooms myDocumentToUpdateactive = roomsrepo.findById(roomNo).get();
+			myDocumentToUpdateactive.setRoomStatus("Active");
+			roomsrepo.save(myDocumentToUpdateactive);
 
 			guest.setReserveCode(code);
 			guest.setRoomNo(roomNo);
-
+			guest.setGuestStatus("Checked In");
 			return repo.insert(guest);
 
+		} else {
+			return null;
 		}
-		return null;
+
 	}
 
-	/*
-	 * public Guest addGuest(Guest guest) { return repo.insert(guest); }
-	 */
+	public void removeGuest(String code, String roomNo, String todaydate, String membercode) {
+
+		if (resrepo.findById(code).get().getCheckout().equals(todaydate)) {
+
+			Rooms myDocumentToUpdatenotactive = roomsrepo.findById(roomNo).get();
+			myDocumentToUpdatenotactive.setRoomStatus("Not Active");
+			roomsrepo.save(myDocumentToUpdatenotactive);
+
+			Guest guestToUpdatenotactive = repo.findById(membercode).get();
+			guestToUpdatenotactive.setGuestStatus("Checked Out");
+			repo.save(guestToUpdatenotactive);
+
+		}
+	}
 
 	public List<Guest> getAllGuest() {
 		return repo.findAll();

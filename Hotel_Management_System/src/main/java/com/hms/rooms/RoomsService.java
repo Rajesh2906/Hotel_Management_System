@@ -27,7 +27,7 @@ public class RoomsService {
 
 	public void updateNoofRooms(Rooms rooms) {
 
-		roomrepo.save(rooms).setRoomStatus("active");
+		roomrepo.save(rooms);
 	}
 
 }

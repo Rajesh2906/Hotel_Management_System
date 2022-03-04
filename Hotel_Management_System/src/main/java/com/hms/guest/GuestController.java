@@ -9,15 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hms.rooms.RoomsRepository;
-
 @RestController
 public class GuestController {
 	@Autowired
 	private GuestService ser;
-
 	@Autowired
-	RoomsRepository roomrepo;
+	private GuestRepository repo;
 
 	@RequestMapping("/guest")
 	public List<Guest> getGuestList() {
@@ -25,15 +22,17 @@ public class GuestController {
 	}
 
 	@RequestMapping(value = "/guest/{code}/{roomNo}", method = RequestMethod.POST)
-	public Guest addGuest(@RequestBody Guest guest, @PathVariable("code") String code,
+	public void addGuest(@RequestBody Guest guest, @PathVariable("code") String code,
 			@PathVariable("roomNo") String roomNo) {
-		roomrepo.findById(roomNo).ifPresent(p -> p.setRoomStatus("active"));
-		return ser.addifGuest(code, guest, roomNo);
+		ser.addifGuest(code, guest, roomNo);
+
 	}
 
-	/*
-	 * @RequestMapping(value = "/guest", method = RequestMethod.POST) public void
-	 * addGuests(@RequestBody Guest guest) { ser.addGuest(guest); }
-	 */
+	@RequestMapping(value = "/updateguest/{code}/{roomNo}/{todaydate}/{membercode}", method = RequestMethod.PUT)
+	public void updateGuest(@PathVariable("code") String code, @PathVariable("roomNo") String roomNo,
+			@PathVariable("todaydate") String todaydate, @PathVariable("membercode") String membercode) {
+		ser.removeGuest(code, roomNo, todaydate, membercode);
+
+	}
 
 }
