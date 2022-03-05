@@ -20,7 +20,7 @@ public class RoomsService {
 
 	public Rooms addNoofRooms(Rooms rooms) {
 
-		rooms.setRoomStatus("not active");
+		rooms.setRoomStatus("Not Active");
 
 		return roomrepo.insert(rooms);
 	}

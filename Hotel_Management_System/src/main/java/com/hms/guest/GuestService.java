@@ -54,19 +54,23 @@ public class GuestService {
 
 	}
 
-	public void removeGuest(String code, String roomNo, String membercode) {
+	public void removeGuest(String code, String roomNo, String membercode) /* throws ParseException */ {
+		/*
+		 * SimpleDateFormat sdformat = new SimpleDateFormat("yyyy/MM/dd"); Date d1 =
+		 * sdformat.parse(DateOfLeaving);
+		 * 
+		 * if (d1.compareTo(resrepo.findById(code).get().getCheckout()) == 0) {
+		 */
 
-		if (resrepo.findById(code).get().getCheckout().toString().equals(currentDate.toString())) {
+		Rooms myDocumentToUpdatenotactive = roomsrepo.findById(roomNo).get();
+		myDocumentToUpdatenotactive.setRoomStatus("Not Active");
+		roomsrepo.save(myDocumentToUpdatenotactive);
 
-			Rooms myDocumentToUpdatenotactive = roomsrepo.findById(roomNo).get();
-			myDocumentToUpdatenotactive.setRoomStatus("Not Active");
-			roomsrepo.save(myDocumentToUpdatenotactive);
+		Guest guestToUpdatenotactive = repo.findById(membercode).get();
+		guestToUpdatenotactive.setGuestStatus("Checked Out");
+		repo.save(guestToUpdatenotactive);
 
-			Guest guestToUpdatenotactive = repo.findById(membercode).get();
-			guestToUpdatenotactive.setGuestStatus("Checked Out");
-			repo.save(guestToUpdatenotactive);
-
-		}
+		// }
 	}
 
 	public List<Guest> getAllGuest() {

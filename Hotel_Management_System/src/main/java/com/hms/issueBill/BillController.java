@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,7 +16,7 @@ public class BillController {
 	@Autowired
 	private BillService billservice;
 
-	@RequestMapping("/getbill/{billCode}")
+	// @RequestMapping("/getbill/{billCode}")
 	public Bill getBillById(@PathVariable("billcode") String billCode) {
 
 		// System.out.println(bill.generateTotalBill());
@@ -25,7 +24,7 @@ public class BillController {
 
 	}
 
-	@RequestMapping(value = "/getBill/{memberCode}", method = RequestMethod.POST)
+	// @RequestMapping(value = "/getBill/{memberCode}", method = RequestMethod.POST)
 	public Bill setBillByGuestId(@RequestBody Bill bill, @PathVariable("memberCode") String memberCode) {
 		return billservice.setBillByGuestId(memberCode, bill);
 

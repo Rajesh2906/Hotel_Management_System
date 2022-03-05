@@ -13,7 +13,6 @@ public class Room {
 	public Room(String period, Long availableRooms) {
 		super();
 		this.period = period;
-
 		this.availableRooms = availableRooms;
 	}
 

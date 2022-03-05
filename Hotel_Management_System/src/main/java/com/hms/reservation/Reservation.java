@@ -1,14 +1,12 @@
 package com.hms.reservation;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
-import io.swagger.annotations.ApiModelProperty;
 
 @Component
 @Document(collection = "Reservation")
@@ -18,13 +16,13 @@ public class Reservation {
 	private int noofchildren;
 	private int noofadults;
 
-	@ApiModelProperty(required = true, dataType = "org.joda.time.LocalDate")
+	// @ApiModelProperty(required = true, dataType = "org.joda.time.LocalDate")
 	@JsonFormat(pattern = "yyyy/MM/dd")
-	private LocalDate checkin;
+	private Date checkin;
 
-	@ApiModelProperty(required = true, dataType = "org.joda.time.LocalDate")
+	// @ApiModelProperty(required = true, dataType = "org.joda.time.LocalDate")
 	@JsonFormat(pattern = "yyyy/MM/dd")
-	private LocalDate checkout;
+	private Date checkout;
 	private int noofnights;
 	@Id
 	private String code;
@@ -32,8 +30,8 @@ public class Reservation {
 	public Reservation() {
 	}
 
-	public Reservation(String status, int noofchildren, int noofadults, LocalDate checkin, LocalDate checkout,
-			int noofnights, String code) {
+	public Reservation(String status, int noofchildren, int noofadults, Date checkin, Date checkout, int noofnights,
+			String code) {
 		super();
 		this.status = status;
 		this.noofchildren = noofchildren;
@@ -68,19 +66,19 @@ public class Reservation {
 		this.noofadults = noofadults;
 	}
 
-	public LocalDate getCheckin() {
+	public Date getCheckin() {
 		return checkin;
 	}
 
-	public void setCheckin(LocalDate checkin) {
+	public void setCheckin(Date checkin) {
 		this.checkin = checkin;
 	}
 
-	public LocalDate getCheckout() {
+	public Date getCheckout() {
 		return checkout;
 	}
 
-	public void setCheckout(LocalDate checkout) {
+	public void setCheckout(Date checkout) {
 		this.checkout = checkout;
 	}
 
