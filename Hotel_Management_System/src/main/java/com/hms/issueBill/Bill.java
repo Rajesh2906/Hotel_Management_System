@@ -12,10 +12,10 @@ public class Bill {
 
 	@Id
 	private String billingNo;
-	private String guestMemberCode;
+	private String guestMemberCode_;
 	private Double quantity;
-	private Double price;
-	private Double taxes;
+	private Double price_;
+	private Double taxes_;
 	private Date date;
 	private Double services;
 	private Double unit;
@@ -25,24 +25,17 @@ public class Bill {
 
 	}
 
-	public Bill(String billingNo, Double quantity, Double price, Double taxes, Date date, Double services,
-			Double unit) {
+	public Bill(String billingNo, String guestMemberCode_, Double quantity, Double price_, Double taxes_, Date date,
+			Double services, Double unit) {
 		super();
 		this.billingNo = billingNo;
+		this.guestMemberCode_ = guestMemberCode_;
 		this.quantity = quantity;
-		this.price = price;
-		this.taxes = taxes;
+		this.price_ = price_;
+		this.taxes_ = taxes_;
 		this.date = date;
 		this.services = services;
 		this.unit = unit;
-	}
-
-	public String getGuestMemberCode() {
-		return guestMemberCode;
-	}
-
-	public void setGuestMemberCode(String guestMemberCode) {
-		this.guestMemberCode = guestMemberCode;
 	}
 
 	public String getBillingNo() {
@@ -53,6 +46,14 @@ public class Bill {
 		this.billingNo = billingNo;
 	}
 
+	public String getGuestMemberCode_() {
+		return guestMemberCode_;
+	}
+
+	public void setGuestMemberCode_(String guestMemberCode_) {
+		this.guestMemberCode_ = guestMemberCode_;
+	}
+
 	public Double getQuantity() {
 		return quantity;
 	}
@@ -61,20 +62,20 @@ public class Bill {
 		this.quantity = quantity;
 	}
 
-	public Double getPrice() {
-		return price;
+	public Double getPrice_() {
+		return price_;
 	}
 
-	public void setPrice(Double price) {
-		this.price = price;
+	public void setPrice_(Double price_) {
+		this.price_ = price_;
 	}
 
-	public Double getTaxes() {
-		return taxes;
+	public Double getTaxes_() {
+		return taxes_;
 	}
 
-	public void setTaxes(Double taxes) {
-		this.taxes = taxes;
+	public void setTaxes_(Double taxes_) {
+		this.taxes_ = taxes_;
 	}
 
 	public Date getDate() {

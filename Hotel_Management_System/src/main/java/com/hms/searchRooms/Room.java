@@ -4,16 +4,16 @@ package com.hms.searchRooms;
 public class Room {
 
 	private String period;
-	private Long availableRooms;
+	private Long availableRooms_;
 
 	public Room() {
 
 	}
 
-	public Room(String period, Long availableRooms) {
+	public Room(String period, Long availableRooms_) {
 		super();
 		this.period = period;
-		this.availableRooms = availableRooms;
+		this.availableRooms_ = availableRooms_;
 	}
 
 	public String getPeriod() {
@@ -24,12 +24,12 @@ public class Room {
 		this.period = period;
 	}
 
-	public Long getAvailableRooms() {
-		return availableRooms;
+	public Long getAvailableRooms_() {
+		return availableRooms_;
 	}
 
-	public void setAvailableRooms(Long availableRooms) {
-		this.availableRooms = availableRooms;
+	public void setAvailableRooms_(Long availableRooms_) {
+		this.availableRooms_ = availableRooms_;
 	}
 
 }

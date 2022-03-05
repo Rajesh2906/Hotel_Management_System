@@ -40,12 +40,12 @@ public class GuestService {
 		if (resrepo.existsById(code)) {
 
 			Rooms myDocumentToUpdateactive = roomsrepo.findById(roomNo).get();
-			myDocumentToUpdateactive.setRoomStatus("Active");
+			myDocumentToUpdateactive.setRoomStatus_("Active");
 			roomsrepo.save(myDocumentToUpdateactive);
 
-			guest.setReserveCode(code);
-			guest.setRoomNo(roomNo);
-			guest.setGuestStatus("Checked In");
+			guest.setReserveCode_(code);
+			guest.setRoomNo_(roomNo);
+			guest.setGuestStatus_("Checked In");
 			return repo.insert(guest);
 
 		} else {
@@ -63,11 +63,11 @@ public class GuestService {
 		 */
 
 		Rooms myDocumentToUpdatenotactive = roomsrepo.findById(roomNo).get();
-		myDocumentToUpdatenotactive.setRoomStatus("Not Active");
+		myDocumentToUpdatenotactive.setRoomStatus_("Not Active");
 		roomsrepo.save(myDocumentToUpdatenotactive);
 
 		Guest guestToUpdatenotactive = repo.findById(membercode).get();
-		guestToUpdatenotactive.setGuestStatus("Checked Out");
+		guestToUpdatenotactive.setGuestStatus_("Checked Out");
 		repo.save(guestToUpdatenotactive);
 
 		// }

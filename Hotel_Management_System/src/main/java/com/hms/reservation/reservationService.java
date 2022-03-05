@@ -11,11 +11,15 @@ public class reservationService {
 	@Autowired
 	private reservationRepository rep;
 
+	@Autowired
+	Reservation reservation;
+
 	public List<Reservation> getAllReservation() {
 		return rep.findAll();
 	}
 
 	public Reservation addReservation(Reservation reservaiton) {
+		reservation.setStatus_("Confirmed");
 		return rep.insert(reservaiton);
 	}
 

@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Document(collection = "Reservation")
 public class Reservation {
 
-	private String status;
+	private String status_;
 	private int noofchildren;
 	private int noofadults;
 
@@ -30,10 +30,10 @@ public class Reservation {
 	public Reservation() {
 	}
 
-	public Reservation(String status, int noofchildren, int noofadults, Date checkin, Date checkout, int noofnights,
+	public Reservation(String status_, int noofchildren, int noofadults, Date checkin, Date checkout, int noofnights,
 			String code) {
 		super();
-		this.status = status;
+		this.status_ = status_;
 		this.noofchildren = noofchildren;
 		this.noofadults = noofadults;
 		this.checkin = checkin;
@@ -42,12 +42,12 @@ public class Reservation {
 		this.code = code;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getStatus_() {
+		return status_;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatus_(String status_) {
+		this.status_ = status_;
 	}
 
 	public int getNoofchildren() {

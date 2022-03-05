@@ -10,25 +10,17 @@ public class Rooms {
 
 	@Id
 	private String roomNo;
-	private String roomStatus;
+	private String roomStatus_;
 	private Long totalRooms;
 
 	public Rooms() {
 	}
 
-	public Rooms(String roomNo, String roomStatus, Long totalRooms) {
+	public Rooms(String roomNo, String roomStatus_, Long totalRooms) {
 		super();
 		this.roomNo = roomNo;
-		this.roomStatus = roomStatus;
+		this.roomStatus_ = roomStatus_;
 		this.totalRooms = totalRooms;
-	}
-
-	public String getRoomStatus() {
-		return roomStatus;
-	}
-
-	public void setRoomStatus(String roomStatus) {
-		this.roomStatus = roomStatus;
 	}
 
 	public String getRoomNo() {
@@ -37,6 +29,14 @@ public class Rooms {
 
 	public void setRoomNo(String roomNo) {
 		this.roomNo = roomNo;
+	}
+
+	public String getRoomStatus_() {
+		return roomStatus_;
+	}
+
+	public void setRoomStatus_(String roomStatus_) {
+		this.roomStatus_ = roomStatus_;
 	}
 
 	public Long getTotalRooms() {

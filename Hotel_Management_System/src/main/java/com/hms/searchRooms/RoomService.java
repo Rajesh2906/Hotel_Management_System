@@ -1,5 +1,6 @@
 package com.hms.searchRooms;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class RoomService {
 
 	public List<Rooms> availablerooms() {
 
-		// List<Rooms> list = new ArrayList<>();
+		List<Rooms> list = new ArrayList<>();
 
 		// return roomrepo.findAll().stream().map(p ->
 		// p.getRoomStatus().contentEquals("Not
@@ -25,7 +26,8 @@ public class RoomService {
 		// return roomrepo.findAll().stream().map(p -> p.getRoomStatus().equals("Not
 		// Active")).getClass();
 
-		return roomrepo.findAll().stream().filter(p -> p.getRoomStatus().equals("Not Active")).toList();
+		roomrepo.findAll().stream().filter(p -> p.getRoomStatus_().equals("Not Active")).forEach(list::add);
+		return list;
 
 	}
 

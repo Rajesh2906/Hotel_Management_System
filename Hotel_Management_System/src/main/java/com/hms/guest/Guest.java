@@ -12,11 +12,10 @@ public class Guest {
 
 	@Id
 	private String memberCode;
-	private String reserveCode;
-	private String roomNo;
-
-	private Date todayDate;
-	private String guestStatus;
+	private String reserveCode_;
+	private String roomNo_;
+	private Date todayDate_;
+	private String guestStatus_;
 	private Long phoneNumber;
 	private String company;
 	private String name;
@@ -27,14 +26,14 @@ public class Guest {
 	public Guest() {
 	}
 
-	public Guest(String memberCode, String reserveCode, String roomNo, Date todayDate, String guestStatus,
+	public Guest(String memberCode, String reserveCode_, String roomNo_, Date todayDate_, String guestStatus_,
 			Long phoneNumber, String company, String name, String email, String gender, String address) {
 		super();
 		this.memberCode = memberCode;
-		this.reserveCode = reserveCode;
-		this.roomNo = roomNo;
-		this.todayDate = todayDate;
-		this.guestStatus = guestStatus;
+		this.reserveCode_ = reserveCode_;
+		this.roomNo_ = roomNo_;
+		this.todayDate_ = todayDate_;
+		this.guestStatus_ = guestStatus_;
 		this.phoneNumber = phoneNumber;
 		this.company = company;
 		this.name = name;
@@ -43,44 +42,44 @@ public class Guest {
 		this.address = address;
 	}
 
-	public String getGuestStatus() {
-		return guestStatus;
-	}
-
-	public void setGuestStatus(String guestStatus) {
-		this.guestStatus = guestStatus;
-	}
-
-	public Date getTodayDate() {
-		return todayDate;
-	}
-
-	public void setTodayDate(Date todayDate) {
-		this.todayDate = todayDate;
-	}
-
-	public String getRoomNo() {
-		return roomNo;
-	}
-
-	public void setRoomNo(String roomNo) {
-		this.roomNo = roomNo;
-	}
-
-	public String getReserveCode() {
-		return reserveCode;
-	}
-
-	public void setReserveCode(String reserveCode) {
-		this.reserveCode = reserveCode;
-	}
-
 	public String getMemberCode() {
 		return memberCode;
 	}
 
 	public void setMemberCode(String memberCode) {
 		this.memberCode = memberCode;
+	}
+
+	public String getReserveCode_() {
+		return reserveCode_;
+	}
+
+	public void setReserveCode_(String reserveCode_) {
+		this.reserveCode_ = reserveCode_;
+	}
+
+	public String getRoomNo_() {
+		return roomNo_;
+	}
+
+	public void setRoomNo_(String roomNo_) {
+		this.roomNo_ = roomNo_;
+	}
+
+	public Date getTodayDate_() {
+		return todayDate_;
+	}
+
+	public void setTodayDate_(Date todayDate_) {
+		this.todayDate_ = todayDate_;
+	}
+
+	public String getGuestStatus_() {
+		return guestStatus_;
+	}
+
+	public void setGuestStatus_(String guestStatus_) {
+		this.guestStatus_ = guestStatus_;
 	}
 
 	public Long getPhoneNumber() {

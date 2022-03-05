@@ -20,9 +20,9 @@ public class PaymentService {
 		if (billrepo.existsById(billingNo)) {
 
 			payment.setBillingNo(billingNo);
-			double price = billrepo.findById(billingNo).get().getPrice();
+			double price = billrepo.findById(billingNo).get().getPrice_();
 			double services = billrepo.findById(billingNo).get().getServices();
-			double taxes = billrepo.findById(billingNo).get().getTaxes();
+			double taxes = billrepo.findById(billingNo).get().getTaxes_();
 			double totalbill = price + services + taxes;
 			payment.setTotal(totalbill);
 
